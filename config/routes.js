@@ -30,7 +30,8 @@ module.exports.routes = {
   'POST /perusahaan': 'PerusahaanController.create',
   'GET /perusahaan': 'PerusahaanController.find',
   'GET /perusahaan/:id': 'PerusahaanController.findOne',
-  'PATCH /perusahaan/:id': 'PerusahaanController.update'
+  'PATCH /perusahaan/:id': 'PerusahaanController.update',
+  'DELETE /perusahaan/:id': 'PerusahaanController.delete'
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
