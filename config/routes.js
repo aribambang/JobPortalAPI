@@ -28,7 +28,8 @@ module.exports.routes = {
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
 
   'POST /perusahaan': 'PerusahaanController.create',
-  'GET /perusahaan': 'PerusahaanController.find'
+  'GET /perusahaan': 'PerusahaanController.find',
+  'GET /perusahaan/:id': 'PerusahaanController.findOne'
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗

@@ -30,8 +30,15 @@ module.exports = {
     }
 
   },
-  findOne(req, res){
-
+  async findOne(req, res){
+    try {
+      const perusahaan = await Perusahaan.findOne({
+        id: req.params.id
+      });
+      return res.ok(perusahaan);
+    } catch (err) {
+      return res.serverError(err);
+    }
   },
   update(req, res){
 
