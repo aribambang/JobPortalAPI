@@ -55,7 +55,6 @@ module.exports.datastores = {
     port: '27017',
     host: 'localhost',
     database: 'portal_db'
-
   },
 
 
