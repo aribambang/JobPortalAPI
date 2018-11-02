@@ -20,7 +20,14 @@ module.exports = {
       return res.serverError(err);
     }
   },
-  find(req, res){
+  async find(req, res){
+
+    try {
+      const perusahaans = await Perusahaan.find();
+      return res.ok(perusahaans);
+    } catch (err) {
+      return res.serverError(err);
+    }
 
   },
   findOne(req, res){
