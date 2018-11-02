@@ -40,7 +40,25 @@ module.exports = {
       return res.serverError(err);
     }
   },
-  update(req, res){
+  async update(req, res){
+    try {
+      let params = req.allParams();
+      let attributes = {};
+      if(params.nama){
+        attributes.nama = params.nama;
+      }
+      if(params.kota){
+        attributes.kota = params.kota;
+      }
+      if(params.alamat){
+        attributes.alamat = params.alamat;
+      }
+
+      const results = await Perusahaan.update({id: req.params.id}, attributes);
+      return res.ok(results);
+    } catch (err) {
+      return res.serverError(err);
+    }
 
   },
   delete(req, res){
