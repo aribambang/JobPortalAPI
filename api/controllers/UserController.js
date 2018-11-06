@@ -42,9 +42,27 @@ module.exports = {
    * `UserController.login()`
    */
   login: async function (req, res) {
-    return res.json({
-      todo: 'login() is not implemented yet!'
-    });
+    try {
+      const schema = Joi.object().keys({
+        email: Joi.string().required().email(),
+        password: Joi.string().required()
+      });
+      const {email , password} = await Joi.validate(req.allParams(), schema);
+      const user = await User.findOne({email});
+      if(!user){
+        return res.notFound({error: 'user tidak ada'});
+      }
+      const matchedPassword = await UtilService.comparePassword(password, user.password);
+      if(!matchedPassword){
+        return res.badRequest({error: 'gagal'});
+      }
+      return res.ok(user);
+    } catch (error) {
+      if(error.name === 'ValidationError'){
+        return res.badRequest({error});
+      }
+      return res.serverError(error);
+    }
   }
 
 };
