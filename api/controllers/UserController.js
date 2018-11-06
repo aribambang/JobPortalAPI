@@ -21,9 +21,15 @@ module.exports = {
         password: Joi.string().required()
       });
 
-      const params = await Joi.validate(req.allParams(), schema);
+      const {email , password} = await Joi.validate(req.allParams(), schema);
+      const encryptedPassword = await UtilService.hashPassword(password);
 
-      return res.ok(params);
+      const results = await User.create({
+        email,
+        password: encryptedPassword
+      });
+
+      return res.ok(results);
     } catch (error) {
       if(error.name === 'ValidationError'){
         return res.badRequest({error});
