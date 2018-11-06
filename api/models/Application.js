@@ -1,5 +1,5 @@
 /**
- * Lowongan.js
+ * Application.js
  *
  * @description :: A model definition.  Represents a database table/collection/etc.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -13,8 +13,16 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
-    judul: { type: 'string', required: true },
-
+    lowongan:{ 
+      columnName: 'lowonganId',
+      model: 'Lowongan',
+      required: true
+    },
+    kandidat:{
+      columnName: 'kandidatId',
+      model: 'Kandidat',
+      required: true
+    }
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -23,22 +31,6 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
-    lowonganDetail: {
-      model: 'LowonganDetail',
-      columnName: 'lowonganDetailId',
-      required: true
-    },
-    perusahaan: {
-      model: 'Perusahaan',
-      columnName: 'perusahaanId',
-      required: true
-    },
-    kandidats: {
-      collection: 'kandidat',
-      via: 'lowongan',
-      through: 'application'
-    }
 
   },
 

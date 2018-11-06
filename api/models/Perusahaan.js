@@ -10,6 +10,12 @@ module.exports = {
     },
     alamat: {
       type: 'string'
+    },
+
+    //Association
+    lowongan: {
+      collection: 'Lowongan',
+      via: 'perusahaan'
     }
   }
 

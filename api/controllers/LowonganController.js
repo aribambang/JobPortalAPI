@@ -13,7 +13,7 @@ module.exports = {
    */
   create: async function (req, res) {
     try {
-      let {judul, deskripsi, gaji, posisi} = req.allParams();
+      let {judul, deskripsi, gaji, posisi, perusahaanId} = req.allParams();
       if(!judul){
         return res.badRequest({err: 'judul kosong'});
       }
@@ -24,7 +24,7 @@ module.exports = {
       const lowonganDetail = await LowonganDetail.create({
         deskripsi, gaji, posisi
       }).fetch();
-      const lowongan = await Lowongan.create({judul, lowonganDetail: lowonganDetail.id});
+      const lowongan = await Lowongan.create({judul, lowonganDetail: lowonganDetail.id, perusahaan: perusahaanId}).fetch();
 
       return res.ok(lowongan);
     } catch (err) {
@@ -37,7 +37,9 @@ module.exports = {
    */
   find: async function (req, res) {
     try {
-      const lowongans = await Lowongan.find().populate('lowonganDetail');
+      const lowongans = await Lowongan.find({})
+        .populate('lowonganDetail')
+        .populate('perusahaan');
       return res.ok(lowongans);
     } catch (error) {
       return res.serverError(error);

@@ -35,8 +35,11 @@ module.exports.routes = {
 
   //lowongan
   'POST /lowongan' : 'LowonganController.create',
-  'GET /lowongan' : 'LowonganController.find'
+  'GET /lowongan' : 'LowonganController.find',
 
+  //application
+  'POST /application' : 'ApplicationController.create',
+  'GET /application' : 'ApplicationController.find',
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
