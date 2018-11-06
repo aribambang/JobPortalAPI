@@ -41,6 +41,10 @@ module.exports.routes = {
   'POST /application' : 'ApplicationController.create',
   'GET /application' : 'ApplicationController.find',
 
+  //user
+  'POST /user/login' : 'UserController.login',
+  'POST /user/signup' : 'UserController.signup',
+
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
   //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝
