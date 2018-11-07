@@ -56,7 +56,8 @@ module.exports = {
       if(!matchedPassword){
         return res.badRequest({error: 'gagal'});
       }
-      return res.ok(user);
+      const token = JWTService.issuer({user: user.id}, '1 day');
+      return res.ok({token});
     } catch (error) {
       if(error.name === 'ValidationError'){
         return res.badRequest({error});
