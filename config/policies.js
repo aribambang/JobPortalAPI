@@ -20,7 +20,16 @@ module.exports.policies = {
   // '*': true,
 
   LowonganController:{
-    'find': 'isLoggedIn'
+    '*': 'isLoggedIn'
+  },
+  PerusahaanController:{
+    '*': 'isLoggedIn'
+  },
+  ApplicationController:{
+    '*': 'isLoggedIn'
+  },
+  UserController:{
+    '*': true
   }
 
 };
