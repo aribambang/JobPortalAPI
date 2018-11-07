@@ -12,7 +12,8 @@ module.exports = {
       const results = await Perusahaan.create({
         nama: params.nama,
         kota: params.kota,
-        alamat: params.alamat
+        alamat: params.alamat,
+        user: req.user
       });
       return res.ok(results);
     }

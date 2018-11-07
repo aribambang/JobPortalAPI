@@ -16,6 +16,11 @@ module.exports = {
     lowongan: {
       collection: 'Lowongan',
       via: 'perusahaan'
+    },
+    user: {
+      model: 'user',
+      columnName: 'userId',
+      required: true
     }
   }
 
